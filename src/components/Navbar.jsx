@@ -22,7 +22,7 @@ const Navbar = () => {
               Blog
             </li>
           </ul>
-          <div className='relative'>
+          <div className='relative cursor-pointer'>
             <BsCart className='text-3xl text-black' />
             <span className='absolute -top-2 -right-2 bg-orange-900 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs'>
               0
