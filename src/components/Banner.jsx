@@ -30,14 +30,17 @@ const Banner = () => {
             transition: 'transform 0.5s ease',
           };
           return (
-            <img
-              src={item}
-              className='w-screen h-full object-cover'
-              alt='banner-image'
-              loading='priority'
-              style={imageStyle}
+            <div
               key={idx}
-            />
+              className='w-full h-full flex-shrink-0 max-h-[720px] overflow-hidden'
+              style={imageStyle}
+            >
+              <img
+                src={item}
+                alt={item}
+                className='w-full h-full object-cover'
+              />
+            </div>
           );
         })}
         <HiArrowLeft
