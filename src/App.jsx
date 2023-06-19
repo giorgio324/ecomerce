@@ -1,7 +1,10 @@
+import Home from './pages/Home';
+import Navbar from './components/Navbar';
 function App() {
   return (
     <>
-      <h1 className='text-red-400'>hey</h1>
+      <Navbar />
+      <Home />
     </>
   );
 }
