@@ -3,7 +3,7 @@ import Product from './Product';
 const Products = ({ products }) => {
   return (
     <section className='py-10'>
-      <div className='flex flex-col items-center gap-4 px-16'>
+      <div className='flex flex-col items-center gap-4 px-16 py-8'>
         <h1 className='text-2xl bg-black text-white py-2 w-80 text-center'>
           shopping everyday
         </h1>
