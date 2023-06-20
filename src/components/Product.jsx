@@ -1,16 +1,28 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
+  const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const truncatedTitle =
     product.title.length > 30
       ? product.title.slice(0, 18) + '...'
       : product.title;
+  const handleDetails = () => {
+    console.log('Details');
+    navigate(`/product/${product.id}`, { state: product });
+  };
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
+    console.log('Add to Cart');
+  };
+
   return (
     <div
       className='group flex flex-col border'
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleDetails}
     >
       <div className='w-full h-96 cursor-pointer overflow-hidden'>
         <img
@@ -28,7 +40,7 @@ const Product = ({ product }) => {
           {isHovered ? (
             <button
               className='text-gray-500 hover:text-gray-900 hover:bg-slate-200 transform transition-all duration-300 text-xs h-full w-full border'
-              onClick={() => console.log('Add to Cart')}
+              onClick={(e) => handleAddToCart(e)}
             >
               Add to Cart
             </button>

@@ -9,6 +9,7 @@ import {
   ScrollRestoration,
 } from 'react-router-dom';
 import { productsData } from './api/Api';
+import Product from './pages/Product';
 const Layout = () => {
   return (
     <>
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
         loader: productsData,
+      },
+      {
+        path: '/product/:id',
+        element: <Product />,
       },
       {
         path: '/cart',
