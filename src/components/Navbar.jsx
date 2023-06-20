@@ -1,7 +1,7 @@
 import { BsCart } from 'react-icons/bs';
 const Navbar = () => {
   return (
-    <nav className='w-full h-20 bg-white border-b border-b-gray-800'>
+    <nav className='w-full h-20 bg-white border-b border-b-gray-800 sticky top-0 z-50'>
       <div className='max-w-screen-xl h-full mx-auto flex items-center justify-between px-12'>
         <h1 className='font-bold font-tiltPrism text-3xl'>SHOPPY</h1>
         <div className='flex gap-10'>
