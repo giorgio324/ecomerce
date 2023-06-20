@@ -1,6 +1,6 @@
 import Product from './Product';
 
-const Products = () => {
+const Products = ({ products }) => {
   return (
     <section className='py-10'>
       <div className='flex flex-col items-center gap-4 px-16'>
@@ -14,8 +14,10 @@ const Products = () => {
           quibusdam. Quibusdam quis esse doloremque exercitationem accusamus,
         </p>
       </div>
-      <div className='max-w-screen-xl mx-auto px-16'>
-        <Product />
+      <div className='max-w-screen-xl mx-auto px-16 py-10 grid grid-cols-4 gap-5'>
+        {products?.map((product) => {
+          return <Product key={product.id} product={product} />;
+        })}
       </div>
     </section>
   );
