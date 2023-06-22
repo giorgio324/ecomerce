@@ -1,6 +1,9 @@
 import { BsCart } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const Navbar = () => {
+  const cartItems = useSelector((state) => state.cart.cart);
+  const uniqueCartItems = cartItems.length;
   return (
     <nav className='w-full h-20 bg-white border-b border-b-gray-800 sticky top-0 z-50'>
       <div className='max-w-screen-xl h-full mx-auto flex items-center justify-between px-12'>
@@ -29,7 +32,7 @@ const Navbar = () => {
             <div className='relative cursor-pointer'>
               <BsCart className='text-3xl text-black' />
               <span className='absolute -top-2 -right-2 bg-orange-900 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs'>
-                0
+                {uniqueCartItems}
               </span>
             </div>
             <div>

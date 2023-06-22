@@ -1,11 +1,28 @@
 import { useLoaderData } from 'react-router-dom';
 import { MdOutlineStar, MdStarBorder } from 'react-icons/md';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../slices/cartSlice';
+import { useState } from 'react';
 const Product = () => {
+  const dispatch = useDispatch();
   const fetchedProduct = useLoaderData();
-  console.log(fetchedProduct);
+  // used to show rating stars
   const maxRating = 5;
   const rating = Math.round(fetchedProduct?.rating?.rate || 0);
   const emptyStars = Math.max(0, maxRating - rating);
+  const [quantity, setQuantity] = useState(1);
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ ...fetchedProduct, quantity }));
+  };
+  const handleQuantityIncrease = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
+  const handleQuantityDecrease = () => {
+    if (quantity === 1) return;
+    setQuantity((prevQuantity) => prevQuantity - 1);
+  };
+
   return (
     <>
       <section className='max-w-screen-xl mx-auto px-12 py-20 flex gap-10'>
@@ -44,14 +61,20 @@ const Product = () => {
             >
               <p>Amount</p>
               <div className='flex gap-4'>
-                <button className='group relative border px-3'>
+                <button
+                  className='group relative border px-3'
+                  onClick={handleQuantityDecrease}
+                >
                   <span className='absolute top-0 left-0 h-full w-0 bg-black transition-all duration-500 ease-in-out group-hover:w-full'></span>
                   <span className='relative z-10 text-black transition-colors duration-500 ease-in-out group-hover:text-white'>
                     -
                   </span>
                 </button>
-                <p className='font-semibold'>{1}</p>
-                <button className='group relative border px-3'>
+                <p className='font-semibold'>{quantity}</p>
+                <button
+                  className='group relative border px-3'
+                  onClick={handleQuantityIncrease}
+                >
                   <span className='absolute top-0 left-0 h-full w-0 bg-black transition-all duration-500 ease-in-out group-hover:w-full'></span>
                   <span className='relative z-10 text-black transition-colors duration-500 ease-in-out group-hover:text-white'>
                     +
@@ -59,7 +82,10 @@ const Product = () => {
                 </button>
               </div>
             </div>
-            <button className='group relative border px-6 py-4'>
+            <button
+              className='group relative border px-6 py-4'
+              onClick={handleAddToCart}
+            >
               <span className='absolute top-0 left-0 h-full w-0 bg-black transition-all duration-500 ease-in-out group-hover:w-full'></span>
               <span className='relative z-10 text-black transition-colors duration-500 ease-in-out group-hover:text-white'>
                 Add to Cart
