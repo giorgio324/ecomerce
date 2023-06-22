@@ -1,8 +1,9 @@
 import { useLoaderData } from 'react-router-dom';
 import { MdOutlineStar, MdStarBorder } from 'react-icons/md';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../slices/cartSlice';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 const Product = () => {
   const dispatch = useDispatch();
   const fetchedProduct = useLoaderData();
@@ -14,6 +15,7 @@ const Product = () => {
 
   const handleAddToCart = () => {
     dispatch(addToCart({ ...fetchedProduct, quantity }));
+    toast.success(`${quantity} ${fetchedProduct?.title} added to cart!`);
   };
   const handleQuantityIncrease = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);

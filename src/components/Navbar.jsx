@@ -36,7 +36,7 @@ const Navbar = () => {
               </span>
             </div>
             <div>
-              <button className='bg-orange-900 text-white px-4 py-1 rounded-lg hover:bg-orange-600 hover:text-gray-200 transition-all duration-300 ease-in-out'>
+              <button className='bg-orange-900 text-white px-4 py-1 rounded-sm hover:bg-orange-600 hover:text-gray-200 transition-all duration-300 ease-in-out'>
                 Login
               </button>
             </div>

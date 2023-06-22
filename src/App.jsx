@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { productLoader, productsData } from './api/Api';
 import Product from './pages/Product';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,12 @@ function App() {
       <Provider store={store}>
         <RouterProvider router={router} />
       </Provider>
+      <ToastContainer
+        theme='dark'
+        closeOnClick
+        autoClose={1500}
+        position='top-left'
+      />
     </>
   );
 }

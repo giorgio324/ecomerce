@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addToCart } from '../slices/cartSlice';
-
+import { toast } from 'react-toastify';
 const Product = ({ product }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -19,8 +19,8 @@ const Product = ({ product }) => {
   };
   const handleAddToCart = (e) => {
     e.stopPropagation();
-    console.log('Add to Cart');
     dispatch(addToCart({ ...product, quantity: 1 }));
+    toast.success(`${truncatedTitle} added to cart!`);
   };
   return (
     <div

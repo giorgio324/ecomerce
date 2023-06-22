@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     setProducts(data);
   }, [data]);
-  console.log(products);
+
   return (
     <>
       <Banner />
