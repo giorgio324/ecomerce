@@ -1,21 +1,27 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { addToCart } from '../slices/cartSlice';
 
 const Product = ({ product }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [isHovered, setIsHovered] = useState(false);
+
   const truncatedTitle =
     product.title.length > 30
       ? product.title.slice(0, 18) + '...'
       : product.title;
+
   const handleDetails = () => {
     navigate(`/product/${product.id}`);
   };
   const handleAddToCart = (e) => {
     e.stopPropagation();
     console.log('Add to Cart');
+    dispatch(addToCart({ ...product, quantity: 1 }));
   };
-
   return (
     <div
       className='group flex flex-col border'

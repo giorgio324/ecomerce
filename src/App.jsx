@@ -2,6 +2,8 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Cart from './pages/Cart';
+import { store } from './store/store';
+import { Provider } from 'react-redux';
 import {
   Outlet,
   createBrowserRouter,
@@ -45,7 +47,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </>
   );
 }
