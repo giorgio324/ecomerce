@@ -9,3 +9,15 @@ export async function productsData() {
     return null; // or return an empty array: []
   }
 }
+
+export const productLoader = async ({ params }) => {
+  try {
+    const response = await axios.get(
+      `https://fakestoreapi.com/products/${params.id}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching product data:', error);
+    return null;
+  }
+};

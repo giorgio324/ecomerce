@@ -9,8 +9,7 @@ const Product = ({ product }) => {
       ? product.title.slice(0, 18) + '...'
       : product.title;
   const handleDetails = () => {
-    console.log('Details');
-    navigate(`/product/${product.id}`, { state: product });
+    navigate(`/product/${product.id}`);
   };
   const handleAddToCart = (e) => {
     e.stopPropagation();
