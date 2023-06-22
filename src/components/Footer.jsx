@@ -6,7 +6,7 @@ const Footer = () => {
   const year = date.getFullYear();
   return (
     <div className='bg-black text-[#949494] py-20'>
-      <div className='max-w-screen-xl mx-auto px-12 grid grid-cols-4'>
+      <div className='max-w-screen-xl mx-auto px-10 grid grid-cols-4'>
         {/* social media and info */}
         <div className='flex flex-col gap-4'>
           <h1 className='font-bold font-tiltPrism text-2xl text-white'>

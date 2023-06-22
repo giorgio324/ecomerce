@@ -6,7 +6,7 @@ const Navbar = () => {
   const uniqueCartItems = cartItems.length;
   return (
     <nav className='w-full h-20 bg-white border-b border-b-gray-800 sticky top-0 z-50'>
-      <div className='max-w-screen-xl h-full mx-auto flex items-center justify-between px-12'>
+      <div className='max-w-screen-xl h-full mx-auto flex items-center justify-between px-10'>
         <h1 className='font-bold font-tiltPrism text-3xl'>
           <Link to='/'>SHOPPY</Link>
         </h1>
@@ -29,15 +29,21 @@ const Navbar = () => {
             </li>
           </ul>
           <div className='flex gap-8'>
-            <div className='relative cursor-pointer'>
+            <Link to={'/cart'} className='relative cursor-pointer'>
               <BsCart className='text-3xl text-black' />
               <span className='absolute -top-2 -right-2 bg-orange-900 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs'>
                 {uniqueCartItems}
               </span>
-            </div>
+            </Link>
             <div>
-              <button className='bg-orange-900 text-white px-4 py-1 rounded-sm hover:bg-orange-600 hover:text-gray-200 transition-all duration-300 ease-in-out'>
-                Login
+              <button
+                className='group relative border px-3 py-1'
+                onClick={() => console.log('login')}
+              >
+                <span className='absolute top-0 left-0 h-full w-0 bg-black transition-all duration-500 ease-in-out group-hover:w-full'></span>
+                <span className='relative z-10 text-black transition-colors duration-500 ease-in-out group-hover:text-white'>
+                  Log In
+                </span>
               </button>
             </div>
           </div>

@@ -27,7 +27,7 @@ const Product = () => {
 
   return (
     <>
-      <section className='max-w-screen-xl mx-auto px-12 py-20 flex gap-10'>
+      <section className='max-w-screen-xl mx-auto px-10 py-20 flex gap-10'>
         <img
           src={fetchedProduct?.image}
           alt={fetchedProduct?.title}

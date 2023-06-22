@@ -20,6 +20,18 @@ const cartSlice = createSlice({
         }
       },
     },
+    removeFromCart: {
+      reducer(state, action) {
+        state.cart = state.cart.filter((item) => {
+          return item.id !== action.payload.id;
+        });
+      },
+    },
+    clearCart: {
+      reducer(state) {
+        state.cart = [];
+      },
+    },
   },
 });
 
