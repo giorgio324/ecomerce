@@ -30,7 +30,7 @@ const Product = ({ product }) => {
           className='w-full h-96 object-contain group-hover:scale-105 duration-500'
         />
       </div>
-      <div className='w-full border-t px-2 py-4 flex justify-between gap-x-4  items-center flex-grow'>
+      <div className='w-full border-t px-2 py-4 flex justify-between gap-x-4  items-center flex-grow cursor-pointer'>
         <div className='max-w-[130px] break-words flex flex-col gap-y-1'>
           <h2 className='font-bold text-sm'>{truncatedTitle}</h2>
           <p className='text-xs text-gray-500'>{product.category}</p>

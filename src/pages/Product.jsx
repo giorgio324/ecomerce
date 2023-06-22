@@ -50,7 +50,7 @@ const Product = () => {
                     -
                   </span>
                 </button>
-                <p className='font-semibold'>1</p>
+                <p className='font-semibold'>{1}</p>
                 <button className='group relative border px-3'>
                   <span className='absolute top-0 left-0 h-full w-0 bg-black transition-all duration-500 ease-in-out group-hover:w-full'></span>
                   <span className='relative z-10 text-black transition-colors duration-500 ease-in-out group-hover:text-white'>
