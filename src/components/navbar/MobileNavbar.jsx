@@ -5,7 +5,7 @@ const MobileNavbar = ({ isNavbarOpen, toggleNavbar }) => {
     <div
       className={`${
         isNavbarOpen ? 'block' : 'hidden'
-      } md:hidden w-full px-5 py-3 bg-white`}
+      } md:hidden w-full px-5 pt-3 bg-white`}
     >
       <ul className='flex flex-col gap-4'>
         <NavLinkItem to={'/'} text={'Home'} onClick={toggleNavbar} />

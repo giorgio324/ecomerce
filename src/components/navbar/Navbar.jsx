@@ -36,15 +36,12 @@ const Navbar = () => {
                 {uniqueCartItems}
               </span>
             </Link>
-            {/* mobile login button */}
-
             <CustomButton
               text={'Login'}
               px={2}
               py={1}
               onClick={() => console.log('login clicked')}
             />
-
             <button className='md:hidden'>
               <GiHamburgerMenu
                 className='text-3xl text-black'
