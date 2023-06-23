@@ -7,7 +7,7 @@ export default {
         tiltPrism: 'Tilt Prism',
       },
       gridTemplateColumns: {
-        'auto-fit': 'repeat(auto-fit, minmax(18rem, 1fr))',
+        'auto-fit': 'repeat(auto-fit, minmax(16rem, 1fr))',
       },
     },
   },

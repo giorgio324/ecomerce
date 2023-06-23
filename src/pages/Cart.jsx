@@ -5,8 +5,8 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cart);
   console.log(cartItems);
   return (
-    <section className='max-w-screen-xl mx-auto px-10 py-20 grid grid-cols-3 gap-8'>
-      <div className='col-span-2'>
+    <section className='max-w-screen-xl mx-auto px-10 py-20 flex flex-col md:flex-row gap-8'>
+      <div className='w-full'>
         <h1 className='text-2xl font-semibold py-4'>Cart</h1>
         <div className='flex flex-col gap-4'>
           {cartItems.map((cartItem) => (
@@ -14,14 +14,14 @@ const Cart = () => {
           ))}
         </div>
       </div>
-      <div className='col-span-1 bg-slate-100 flex flex-col justify-start p-4 text-sm xl:text-base'>
+      <div className='lg:w-fit lg:min-w-[12rem] bg-slate-100 flex flex-col justify-start p-4 text-sm xl:text-base'>
         <h1 className='text-2xl font-semibold py-4'>Cart Total</h1>
         <div className='flex flex-col gap-4 py-4'>
           <div className='flex gap-4 items-center'>
             <p>Subtotal</p>
             <p className='font-bold'>$ 0.00</p>
           </div>
-          <div className='flex gap-4 items-start py-4'>
+          <div className='flex gap-4 items-start py-4 md:text-base text-sm'>
             <p>Shipping</p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis

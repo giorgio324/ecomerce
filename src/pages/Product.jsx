@@ -33,7 +33,7 @@ const Product = () => {
         <img
           src={fetchedProduct?.image}
           alt={fetchedProduct?.title}
-          className='h-[500px] object-cover'
+          className='h-[500px] w-[500px] object-contain'
         />
         <div className='flex-grow py-12'>
           <h1 className='text-3xl font-bold'>{fetchedProduct?.title}</h1>
