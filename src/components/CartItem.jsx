@@ -11,7 +11,7 @@ const CartItem = ({ cartItem }) => {
 
   return (
     <div className='flex lg:flex-row flex-col gap-4 lg:justify-between'>
-      <div className='flex flex-col md:flex-row gap-4 justify-center flex-grow'>
+      <div className='flex flex-col md:flex-row gap-4 justify-center flex-grow w-full'>
         {/* First column */}
         <div className='flex gap-2 items-center'>
           <p className='font-bold text-xl cursor-pointer'>
@@ -25,11 +25,9 @@ const CartItem = ({ cartItem }) => {
         </div>
 
         {/* Second column */}
-        <div className='flex lg:items-center items-baseline w-full justify-between md:justify-normal lg:flex-row md:flex-col flex-row gap-2'>
-          <p className='font-semibold break-words w-max max-w-[10rem] md:max-w-[14rem]'>
-            {cartItem.title}
-          </p>
-          <p className='min-w-fit'>${cartItem.price}</p>
+        <div className='flex lg:items-center items-baseline w-full justify-between lg:flex-row md:flex-col flex-row gap-2'>
+          <p className='font-semibold break-words '>{cartItem.title}</p>
+          <p className='w-full text-right'>${cartItem.price.toFixed(2)}</p>
         </div>
       </div>
       {/* Third column */}
@@ -61,7 +59,7 @@ const CartItem = ({ cartItem }) => {
 
         {/* Fourth column */}
         <p className='font-semibold min-w-fit'>
-          $ {cartItem.price * cartItem.quantity}
+          ${(cartItem.price * cartItem.quantity).toFixed(2)}
         </p>
       </div>
     </div>

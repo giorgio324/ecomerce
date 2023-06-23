@@ -14,7 +14,7 @@ const Cart = () => {
           ))}
         </div>
       </div>
-      <div className='lg:w-fit lg:min-w-[12rem] bg-slate-100 flex flex-col justify-start p-4 text-sm xl:text-base'>
+      <div className='lg:w-fit lg:min-w-[12rem] bg-slate-100 flex flex-col justify-start p-4 text-sm xl:text-base lg:max-w-[24rem]'>
         <h1 className='text-2xl font-semibold py-4'>Cart Total</h1>
         <div className='flex flex-col gap-4 py-4'>
           <div className='flex gap-4 items-center'>
