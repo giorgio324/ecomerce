@@ -14,7 +14,7 @@ const Products = ({ products }) => {
           quibusdam. Quibusdam quis esse doloremque exercitationem accusamus,
         </p>
       </div>
-      <div className='max-w-screen-xl mx-auto px-5 md:px-10 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
+      <div className='max-w-screen-xl mx-auto px-5 md:px-10 py-10 grid grid-cols-auto-fit gap-5'>
         {products?.map((product) => {
           return <Product key={product.id} product={product} />;
         })}

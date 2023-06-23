@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         tiltPrism: 'Tilt Prism',
       },
+      gridTemplateColumns: {
+        'auto-fit': 'repeat(auto-fit, minmax(18rem, 1fr))',
+      },
     },
   },
   plugins: [],
