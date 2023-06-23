@@ -20,7 +20,7 @@ const CartItem = ({ cartItem }) => {
           <img
             src={cartItem.image}
             alt={cartItem.title}
-            className='w-[100px] object-cover'
+            className='w-32 h32 object-cover'
           />
         </div>
 
