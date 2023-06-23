@@ -1,6 +1,7 @@
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { MdLocationOn } from 'react-icons/md';
 import { BsPaypal, BsPersonFill, BsPlus } from 'react-icons/bs';
+import CustomButton from './customElements/CustomButton';
 const Footer = () => {
   const date = new Date();
   const year = date.getFullYear();
@@ -86,12 +87,7 @@ const Footer = () => {
              text-sm outline-none'
             placeholder='Enter your email'
           />
-          <button className='group relative px-4 py-2 border border-t-0 text-lg'>
-            <span className='absolute top-0 left-0 h-full w-0 bg-white transition-all duration-500 ease-in-out group-hover:w-full'></span>
-            <span className='relative z-10 text-white transition-colors duration-500 ease-in-out group-hover:text-black'>
-              Subscribe
-            </span>
-          </button>
+          <CustomButton text='Subscribe' px={4} py={2} reverseColors />
         </div>
       </div>
     </div>

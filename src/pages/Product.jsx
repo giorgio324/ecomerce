@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../slices/cartSlice';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import CustomButton from '../components/customElements/CustomButton';
 const Product = () => {
   const dispatch = useDispatch();
   const fetchedProduct = useLoaderData();
@@ -16,6 +17,7 @@ const Product = () => {
   const handleAddToCart = () => {
     dispatch(addToCart({ ...fetchedProduct, quantity }));
     toast.success(`${quantity} ${fetchedProduct?.title} added to cart!`);
+    setQuantity(1);
   };
   const handleQuantityIncrease = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
@@ -63,36 +65,25 @@ const Product = () => {
             >
               <p>Amount</p>
               <div className='flex gap-4'>
-                <button
-                  className='group relative border px-3'
+                <CustomButton
+                  px={3}
                   onClick={handleQuantityDecrease}
-                >
-                  <span className='absolute top-0 left-0 h-full w-0 bg-black transition-all duration-500 ease-in-out group-hover:w-full'></span>
-                  <span className='relative z-10 text-black transition-colors duration-500 ease-in-out group-hover:text-white'>
-                    -
-                  </span>
-                </button>
+                  text={'-'}
+                />
                 <p className='font-semibold'>{quantity}</p>
-                <button
-                  className='group relative border px-3'
+                <CustomButton
+                  px={3}
                   onClick={handleQuantityIncrease}
-                >
-                  <span className='absolute top-0 left-0 h-full w-0 bg-black transition-all duration-500 ease-in-out group-hover:w-full'></span>
-                  <span className='relative z-10 text-black transition-colors duration-500 ease-in-out group-hover:text-white'>
-                    +
-                  </span>
-                </button>
+                  text={'+'}
+                />
               </div>
             </div>
-            <button
-              className='group relative border px-6 py-4'
+            <CustomButton
+              px={6}
+              py={4}
               onClick={handleAddToCart}
-            >
-              <span className='absolute top-0 left-0 h-full w-0 bg-black transition-all duration-500 ease-in-out group-hover:w-full'></span>
-              <span className='relative z-10 text-black transition-colors duration-500 ease-in-out group-hover:text-white'>
-                Add to Cart
-              </span>
-            </button>
+              text={'Add to Cart'}
+            />
           </div>
         </div>
       </section>
