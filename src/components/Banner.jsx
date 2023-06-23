@@ -22,7 +22,7 @@ const Banner = () => {
   };
 
   return (
-    <div className='w-full h-auto overflow-x-hidden'>
+    <div className='w-full h-auto overflow-x-hidden pt-[65px] md:pt-[69px]'>
       <div className='w-full h-full flex relative'>
         {bannerData.map((item, idx) => {
           const imageStyle = {

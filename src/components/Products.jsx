@@ -15,9 +15,9 @@ const Products = ({ products }) => {
         </p>
       </div>
       <div className='max-w-screen-xl mx-auto px-16 py-10 grid grid-cols-4 gap-5'>
-        {products?.map((product) => {
+        {/* {products?.map((product) => {
           return <Product key={product.id} product={product} />;
-        })}
+        })} */}
       </div>
     </section>
   );

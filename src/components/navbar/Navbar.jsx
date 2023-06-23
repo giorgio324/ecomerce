@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className='w-full h-20 bg-white border-b border-b-gray-800 fixed top-0 z-50'>
+    <nav className='w-full py-4 bg-white border-b border-b-gray-800 fixed top-0 z-50'>
       <div className='max-w-screen-xl h-full mx-auto flex items-center justify-between px-5 md:px-10'>
         <h1 className='font-bold font-tiltPrism text-2xl md:text-3xl'>
           <Link to='/'>SHOPPY</Link>
@@ -29,29 +29,28 @@ const Navbar = () => {
             <NavLinkItem to={'/element'} text={'Element'} />
             <NavLinkItem to={'/blog'} text={'Blog'} />
           </ul>
-          <div className='flex gap-8'>
+          <div className='flex gap-4 md:gap-8 items-center justify-center'>
             <Link to={'/cart'} className='relative cursor-pointer'>
-              <BsCart className='text-3xl text-black' />
-              <span className='absolute -top-2 -right-2 bg-orange-900 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs'>
+              <BsCart className='text-2xl md:text-3xl text-black' />
+              <span className='absolute -top-1 -right-1 md:-top-2 md:-right-2 bg-orange-900 text-white w-4 md:w-5 h-4 md:h-5 rounded-full flex items-center justify-center text-xs'>
                 {uniqueCartItems}
               </span>
             </Link>
-            <div className='hidden md:block'>
-              <CustomButton
-                text={'Login'}
-                px={3}
-                py={1}
-                onClick={() => console.log('login clicked')}
+            {/* mobile login button */}
+
+            <CustomButton
+              text={'Login'}
+              px={2}
+              py={1}
+              onClick={() => console.log('login clicked')}
+            />
+
+            <button className='md:hidden'>
+              <GiHamburgerMenu
+                className='text-3xl text-black'
+                onClick={toggleNavbar}
               />
-            </div>
-            <div className='md:hidden'>
-              <button>
-                <GiHamburgerMenu
-                  className='text-3xl text-black'
-                  onClick={toggleNavbar}
-                />
-              </button>
-            </div>
+            </button>
           </div>
         </div>
       </div>

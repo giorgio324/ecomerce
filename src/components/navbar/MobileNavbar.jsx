@@ -13,7 +13,6 @@ const MobileNavbar = ({ isNavbarOpen, toggleNavbar }) => {
         <NavLinkItem to={'/shop'} text={'Shop'} onClick={toggleNavbar} />
         <NavLinkItem to={'/element'} text={'Element'} onClick={toggleNavbar} />
         <NavLinkItem to={'/blog'} text={'Blog'} onClick={toggleNavbar} />
-        <NavLinkItem to={'/login'} text={'Log In'} onClick={toggleNavbar} />
       </ul>
     </div>
   );
