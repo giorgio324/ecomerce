@@ -13,7 +13,7 @@ const Footer = () => {
   const year = date.getFullYear();
   return (
     <div className='bg-black text-[#949494] py-20'>
-      <div className='max-w-screen-xl mx-auto px-10 grid grid-cols-1 justify-items-center gap-8 md:justify-items-start md:grid-cols-2 lg:grid-cols-4 '>
+      <div className='max-w-screen-xl mx-auto px-5 md:px-10 grid grid-cols-1 justify-items-center gap-8 md:justify-items-start md:grid-cols-2 lg:grid-cols-4 '>
         {/* social media and info */}
         <div className='flex flex-col gap-4 items-center md:items-start'>
           <h1 className='font-bold font-tiltPrism text-2xl text-white'>
