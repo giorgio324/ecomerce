@@ -6,4 +6,5 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  @apply pt-[65px] md:pt-[69px];
 }

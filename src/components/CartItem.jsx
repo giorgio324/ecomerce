@@ -14,19 +14,21 @@ const CartItem = ({ cartItem }) => {
       <div className='flex flex-col md:flex-row gap-4 justify-center flex-grow w-full'>
         {/* First column */}
         <div className='flex gap-2 items-center'>
-          <p className='font-bold text-xl cursor-pointer'>
+          <p className='font-bold text-xl cursor-pointer border lg:border-0 p-1'>
             <BsTrash />
           </p>
           <img
             src={cartItem.image}
             alt={cartItem.title}
-            className='w-full h-32 md:min-w-[8rem] md:min-h-[8rem] min-h-[5rem] min-w-[5rem] object-contain justify-center flex'
+            className='w-full h-32 md:min-w-[6rem] md:min-h-[6rem] min-h-[5rem] min-w-[5rem] object-contain justify-center flex'
           />
         </div>
 
         {/* Second column */}
         <div className='flex lg:items-center items-baseline w-full justify-between lg:flex-row md:flex-col flex-row gap-2'>
-          <p className='font-semibold break-words w-full'>{cartItem.title}</p>
+          <p className='font-semibold break-words w-full text-lg md:text-base lg:text-sm min-w-[100px]'>
+            {cartItem.title}
+          </p>
           <p className='w-full text-right md:text-left lg:text-center'>
             ${cartItem.price.toFixed(2)}
           </p>
@@ -46,7 +48,7 @@ const CartItem = ({ cartItem }) => {
                 -
               </span>
             </button>
-            <p className='font-semibold'>{cartItem.quantity}</p>
+            <p className='font-semibold '>{cartItem.quantity}</p>
             <button
               className='group relative border px-3'
               onClick={handleQuantityIncrease}
@@ -60,7 +62,7 @@ const CartItem = ({ cartItem }) => {
         </div>
 
         {/* Fourth column */}
-        <p className='font-semibold min-w-fit px-6 md:w-full'>
+        <p className='font-semibold min-w-fit md:px-6 md:w-full'>
           ${(cartItem.price * cartItem.quantity).toFixed(2)}
         </p>
       </div>
