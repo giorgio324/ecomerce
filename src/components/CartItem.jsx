@@ -20,7 +20,7 @@ const CartItem = ({ cartItem }) => {
           <img
             src={cartItem.image}
             alt={cartItem.title}
-            className='w-full h-32 md:min-w-[6rem] md:min-h-[6rem] min-h-[5rem] min-w-[5rem] object-contain justify-center flex'
+            className='w-full h-32 md:min-w-[8rem] md:min-h-[8rem] lg:min-w-[6rem] lg:min-h-[6rem] min-h-[5rem] min-w-[5rem] object-contain justify-center flex'
           />
         </div>
 
