@@ -38,7 +38,7 @@ const CartItem = ({ cartItem }) => {
       <div className='flex md:flex-row flex-col lg:min-w-max md:items-center gap-4 flex-grow lg:w-full lg:justify-end'>
         <div className='border flex gap-4 text-gray-500 p-4 justify-center items-center'>
           <p>Quantity</p>
-          <div className='flex gap-2'>
+          <div className='flex justify-center items-center'>
             <button
               className='group relative border px-3'
               onClick={handleQuantityDecrease}
@@ -48,7 +48,9 @@ const CartItem = ({ cartItem }) => {
                 -
               </span>
             </button>
-            <p className='font-semibold '>{cartItem.quantity}</p>
+            <p className='font-semibold w-8 text-center '>
+              {cartItem.quantity}
+            </p>
             <button
               className='group relative border px-3'
               onClick={handleQuantityIncrease}
