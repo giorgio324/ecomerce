@@ -1,7 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import cartSlice from '../slices/cartSlice';
+import cartReducer from '../slices/cartSlice';
+import { loadState, saveState } from '../utils/localstorage';
+const preloadedState = loadState();
 export const store = configureStore({
   reducer: {
-    cart: cartSlice,
+    cart: cartReducer,
   },
+  preloadedState,
+});
+
+store.subscribe(() => {
+  saveState(store.getState());
 });

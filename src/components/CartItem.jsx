@@ -26,7 +26,7 @@ const CartItem = ({ cartItem }) => {
         {/* First column */}
         <div className='flex gap-2 items-center'>
           <p
-            className='font-bold text-xl cursor-pointer border lg:border-0 p-1'
+            className='font-bold text-2xl cursor-pointer border lg:border-0 p-1'
             onClick={handleRemoveFromCart}
           >
             <BsTrash />
@@ -78,8 +78,9 @@ const CartItem = ({ cartItem }) => {
         </div>
 
         {/* Fourth column */}
-        <p className='font-semibold min-w-fit md:px-6 md:w-full'>
-          ${(cartItem.price * cartItem.quantity).toFixed(2)}
+        <p className='font-semibold min-w-fit md:px-6 md:w-full flex gap-2'>
+          <span className='md:hidden'>total:</span>$
+          {(cartItem.price * cartItem.quantity).toFixed(2)}
         </p>
       </div>
     </div>
