@@ -12,7 +12,6 @@ const Navbar = () => {
   const uniqueCartItems = cartItems.length;
   const toggleNavbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
-    console.log(isNavbarOpen);
   };
 
   return (

@@ -3,7 +3,7 @@ import CartItem from '../components/CartItem';
 const Cart = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cart);
-  console.log(cartItems);
+
   return (
     <section className='max-w-screen-xl mx-auto px-5 md:px-10 py-20 flex flex-col md:flex-row gap-8 lg:gap-0 xl:gap-8'>
       <div className='w-full'>

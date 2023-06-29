@@ -1,12 +1,23 @@
 import { BsTrash } from 'react-icons/bs';
-
+import {
+  increaseQuantity,
+  decreaseQuantity,
+  removeFromCart,
+  addToCart,
+} from '../slices/cartSlice';
+import { useDispatch } from 'react-redux';
 const CartItem = ({ cartItem }) => {
+  const dispatch = useDispatch();
   const handleQuantityDecrease = () => {
-    console.log('Decrease Quantity');
+    dispatch(decreaseQuantity(cartItem));
   };
 
   const handleQuantityIncrease = () => {
-    console.log('Increase Quantity');
+    dispatch(increaseQuantity(cartItem));
+  };
+
+  const handleRemoveFromCart = () => {
+    dispatch(removeFromCart(cartItem));
   };
 
   return (
@@ -14,7 +25,10 @@ const CartItem = ({ cartItem }) => {
       <div className='flex flex-col md:flex-row gap-4 justify-center flex-grow w-full'>
         {/* First column */}
         <div className='flex gap-2 items-center'>
-          <p className='font-bold text-xl cursor-pointer border lg:border-0 p-1'>
+          <p
+            className='font-bold text-xl cursor-pointer border lg:border-0 p-1'
+            onClick={handleRemoveFromCart}
+          >
             <BsTrash />
           </p>
           <img
