@@ -5,7 +5,7 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cart);
   console.log(cartItems);
   return (
-    <section className='max-w-screen-xl mx-auto px-10 py-20 flex flex-col md:flex-row gap-8'>
+    <section className='max-w-screen-xl mx-auto px-5 md:px-10 py-20 flex flex-col md:flex-row gap-8'>
       <div className='w-full'>
         <h1 className='text-2xl font-semibold py-4'>Cart</h1>
         <div className='flex flex-col gap-4'>

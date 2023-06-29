@@ -26,8 +26,10 @@ const CartItem = ({ cartItem }) => {
 
         {/* Second column */}
         <div className='flex lg:items-center items-baseline w-full justify-between lg:flex-row md:flex-col flex-row gap-2'>
-          <p className='font-semibold break-words '>{cartItem.title}</p>
-          <p className='w-full text-right'>${cartItem.price.toFixed(2)}</p>
+          <p className='font-semibold break-words w-full'>{cartItem.title}</p>
+          <p className='w-full text-right md:text-left lg:text-center'>
+            ${cartItem.price.toFixed(2)}
+          </p>
         </div>
       </div>
       {/* Third column */}
@@ -58,7 +60,7 @@ const CartItem = ({ cartItem }) => {
         </div>
 
         {/* Fourth column */}
-        <p className='font-semibold min-w-fit'>
+        <p className='font-semibold min-w-fit px-6 md:w-full'>
           ${(cartItem.price * cartItem.quantity).toFixed(2)}
         </p>
       </div>
