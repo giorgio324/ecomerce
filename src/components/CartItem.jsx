@@ -1,9 +1,9 @@
 import { BsTrash } from 'react-icons/bs';
+import { toast } from 'react-toastify';
 import {
   increaseQuantity,
   decreaseQuantity,
   removeFromCart,
-  addToCart,
 } from '../slices/cartSlice';
 import { useDispatch } from 'react-redux';
 const CartItem = ({ cartItem }) => {
@@ -18,6 +18,7 @@ const CartItem = ({ cartItem }) => {
 
   const handleRemoveFromCart = () => {
     dispatch(removeFromCart(cartItem));
+    toast.error(`${cartItem.title} removed`);
   };
 
   return (
