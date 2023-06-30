@@ -1,16 +1,28 @@
 import { useSelector, useDispatch } from 'react-redux';
 import CartItem from '../components/CartItem';
+import { clearCart } from '../slices/cartSlice';
 const Cart = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cart);
   const subTotal = cartItems.reduce((total, cartItem) => {
     return total + cartItem.price * cartItem.quantity;
   }, 0);
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
 
   return (
     <section className='max-w-screen-xl mx-auto px-5 md:px-10 py-20 flex flex-col md:flex-row gap-8 lg:gap-0 xl:gap-8'>
       <div className='w-full'>
-        <h1 className='text-2xl font-semibold py-4'>Cart</h1>
+        <div className='flex justify-between items-center'>
+          <h1 className='text-2xl font-semibold py-4'>Cart</h1>
+          <button
+            className='bg-red-500 hover:bg-red-600 transition-colors duration-150 ease-linear p-2 font-semibold lg:mr-4 xl:mr-12'
+            onClick={handleClearCart}
+          >
+            CLEAR CART
+          </button>
+        </div>
         <div className='flex flex-col gap-4'>
           {cartItems.map((cartItem) => (
             <CartItem key={cartItem.id} cartItem={cartItem} />

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import { toast } from 'react-toastify';
 const initialState = {
   cart: [],
 };
@@ -50,6 +50,9 @@ const cartSlice = createSlice({
 
     clearCart: {
       reducer(state) {
+        if (state.cart.length > 0) {
+          toast.success('Cart is Cleared');
+        }
         state.cart = [];
       },
     },
