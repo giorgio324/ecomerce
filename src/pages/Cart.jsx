@@ -18,6 +18,21 @@ const Cart = () => {
     );
     setTotal(subTotal > 300 ? subTotal : subTotal + cartItems.length * 20);
   }, [cartItems]);
+  if (cartItems.length === 0) {
+    return (
+      <section className='max-w-screen-xl mx-auto px-5 md:px-10 py-20 flex flex-col justify-center items-center min-h-[550px]'>
+        <div className='w-full flex flex-col gap-10 justify-center items-center text-xl lg:text-2xl xl:text-3xl max-w-md'>
+          <h1 className='uppercase'>Cart is empty</h1>
+          <Link
+            to={'/'}
+            className='bg-black text-white py-3 px-8 rounded-sm hover:bg-gray-800 transition-all font-semibold duration-150 ease-linear w-full text-sm md:text-base lg:text-lg text-center capitalize'
+          >
+            go back to Shopping
+          </Link>
+        </div>
+      </section>
+    );
+  }
   return (
     <section className='max-w-screen-xl mx-auto px-5 md:px-10 py-20 flex flex-col md:flex-row gap-8 lg:gap-0 xl:gap-8'>
       <div className='w-full'>
