@@ -8,6 +8,7 @@ import { productLoader, productsData } from './api/Api';
 import Product from './pages/Product';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Login from './pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: '/cart',
         element: <Cart />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
       },
     ],
   },
