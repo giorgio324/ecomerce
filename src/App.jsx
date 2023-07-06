@@ -1,8 +1,9 @@
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import MainLayout from './layout/MainLayout';
-import { store } from './store/store';
+import { store, persistor } from './store/store';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { productLoader, productsData } from './api/Api';
 import Product from './pages/Product';
@@ -36,11 +37,14 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
 function App() {
   return (
     <>
       <Provider store={store}>
-        <RouterProvider router={router} />
+        <PersistGate loading={null} persistor={persistor}>
+          <RouterProvider router={router} />
+        </PersistGate>
       </Provider>
       <ToastContainer
         theme='dark'
