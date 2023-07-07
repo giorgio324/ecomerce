@@ -1,17 +1,25 @@
 import { BsCart } from 'react-icons/bs';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import NavLinkItem from './NavLinkItem';
 import CustomButton from '../customElements/CustomButton';
 import MobileNavbar from './MobileNavbar';
+import { logoutUser } from '../../slices/authSlice';
+import { toast } from 'react-toastify';
 const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const cartItems = useSelector((state) => state.cart.cart);
+  const isUserLoggedIn = useSelector((state) => state.auth.authenticated);
   const uniqueCartItems = cartItems.length;
   const toggleNavbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
+  };
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    toast.success('Logged out successfully');
   };
 
   return (
@@ -35,9 +43,19 @@ const Navbar = () => {
                 {uniqueCartItems}
               </span>
             </Link>
-            <Link to={'/login'}>
-              <CustomButton text={'Login'} px={2} py={1} />
-            </Link>
+            {isUserLoggedIn ? (
+              <CustomButton
+                text={'Log Out'}
+                px={2}
+                py={1}
+                onClick={handleLogout}
+              />
+            ) : (
+              <Link to={'/login'}>
+                <CustomButton text={'Login'} px={2} py={1} />
+              </Link>
+            )}
+
             <button className='md:hidden'>
               <GiHamburgerMenu
                 className='text-3xl text-black'

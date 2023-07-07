@@ -29,8 +29,8 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(loginUserWithGoogle.fulfilled, (state, { payload }) => {
       console.log(payload);
-      const { uid, photoURL } = payload;
-      state.user = { uid, photoURL };
+      const { uid, photoURL, displayName } = payload;
+      state.user = { uid, photoURL, displayName };
       state.authenticated = true;
     });
     builder.addCase(loginUserWithGithub.fulfilled, (state, { payload }) => {
@@ -39,7 +39,6 @@ const authSlice = createSlice({
       state.user = { uid, photoURL };
       state.authenticated = true;
     });
-    builder.addCase(login);
     builder.addCase(logoutUser.fulfilled, (state) => {
       state.user = null;
       state.authenticated = false;
@@ -54,7 +53,7 @@ export const loginUserWithGoogle = createAsyncThunk(
     const result = await signInWithPopup(auth, provider);
     const { uid, photoURL, displayName } = result.user;
     toast.success(`Welcome ${displayName}`);
-    return { uid, photoURL };
+    return { uid, photoURL, displayName };
   }
 );
 export const loginUserWithGithub = createAsyncThunk(
