@@ -39,13 +39,13 @@ const Cart = () => {
         <div className='flex justify-between items-center'>
           <h1 className='text-2xl font-semibold py-4'>Cart</h1>
           <button
-            className='bg-red-400 hover:bg-red-700 transition-colors duration-150 ease-linear px-2 py-1 font-semibold lg:mr-4 xl:mr-12 text-white'
+            className='bg-red-400 hover:bg-red-700 transition-colors duration-150 ease-linear px-4 py-2 font-semibold lg:mr-4 xl:mr-12 text-white'
             onClick={handleClearCart}
           >
             CLEAR CART
           </button>
         </div>
-        <div className='flex flex-col gap-4'>
+        <div className='flex flex-col gap-4 mt-8 md:mt-4'>
           {cartItems.map((cartItem) => (
             <CartItem key={cartItem.id} cartItem={cartItem} />
           ))}
