@@ -8,7 +8,7 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
   const cartItems = useSelector((state) => state.cart.cart);
-
+  const isUserLoggedIn = useSelector((state) => state.auth.authenticated);
   const handleClearCart = () => {
     dispatch(clearCart());
   };
@@ -73,9 +73,20 @@ const Cart = () => {
             <p className='font-bold'>$ {total.toFixed(2)}</p>
           </div>
           <div className='flex flex-col items-center '>
-            <button className='bg-black text-white py-3 px-8 rounded-sm hover:bg-gray-800 transition-all font-semibold duration-150 ease-linear w-full  text-sm md:text-base lg:text-lg'>
-              Checkout
-            </button>
+            {isUserLoggedIn ? (
+              <button
+                className='bg-black text-white py-3 px-8 rounded-sm hover:bg-gray-800 transition-all font-semibold duration-150 ease-linear w-full  text-sm md:text-base lg:text-lg'
+                onClick={() => console.log('logged in')}
+              >
+                Checkout
+              </button>
+            ) : (
+              <Link to={'/login'} className='w-full'>
+                <button className='bg-black text-white py-3 px-8 rounded-sm hover:bg-gray-800 transition-all font-semibold duration-150 ease-linear w-full  text-sm md:text-base lg:text-lg'>
+                  Checkout
+                </button>
+              </Link>
+            )}
             <span className='py-2 font-semibold text-sm md:text-base lg:text-lg '>
               or
             </span>
