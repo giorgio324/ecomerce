@@ -7,10 +7,23 @@ import {
 import FooterSocialIcon from './FooterSocialIcon';
 import FooterLocation from './FooterLocation';
 import FooterProfile from './FooterProfile';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 FooterSocialIcon;
 const Footer = () => {
+  const [email, setEmail] = useState('');
   const date = new Date();
   const year = date.getFullYear();
+  const handleEmailChange = (e) => {
+    const { value } = e.target;
+    setEmail(value);
+    console.log(value);
+  };
+  const handleSubscribe = () => {
+    toast.success(`thanks for subscribing`);
+    setEmail('');
+  };
+
   return (
     <div className='bg-black text-[#949494] py-20'>
       <div className='max-w-screen-xl mx-auto px-5 md:px-10 grid grid-cols-1 justify-items-center gap-8 md:justify-items-start md:grid-cols-2 lg:grid-cols-4 '>
@@ -57,13 +70,21 @@ const Footer = () => {
         <div className='flex flex-col justify-center justify-self-stretch'>
           <input
             type='email'
-            name='emailletter'
-            id='emailletter'
+            name='email'
+            id='email'
             className='bg-transparent border px-4 py-2
              text-sm outline-none'
             placeholder='Enter your email'
+            value={email}
+            onChange={handleEmailChange}
           />
-          <CustomButton text='Subscribe' px={4} py={2} reverseColors />
+          <CustomButton
+            text='Subscribe'
+            px={4}
+            py={2}
+            reverseColors
+            onClick={handleSubscribe}
+          />
         </div>
       </div>
     </div>
