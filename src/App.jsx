@@ -10,7 +10,7 @@ import Product from './pages/Product';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from './pages/Login';
-
+import Error from './pages/Error';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login />,
+      },
+      {
+        path: '*',
+        element: <Error />,
       },
     ],
   },
