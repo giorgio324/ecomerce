@@ -3,7 +3,6 @@ import {
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
-  GithubAuthProvider,
   signOut,
 } from 'firebase/auth';
 import { app } from '../utils/firebase';
@@ -33,12 +32,6 @@ const authSlice = createSlice({
       state.user = { uid, photoURL, displayName };
       state.authenticated = true;
     });
-    builder.addCase(loginUserWithGithub.fulfilled, (state, { payload }) => {
-      const { uid, photoURL } = payload;
-      console.log(payload);
-      state.user = { uid, photoURL };
-      state.authenticated = true;
-    });
     builder.addCase(logoutUser.fulfilled, (state) => {
       state.user = null;
       state.authenticated = false;
@@ -54,16 +47,6 @@ export const loginUserWithGoogle = createAsyncThunk(
     const { uid, photoURL, displayName } = result.user;
     toast.success(`Welcome ${displayName}`);
     return { uid, photoURL, displayName };
-  }
-);
-export const loginUserWithGithub = createAsyncThunk(
-  'auth/loginUserWithGithub',
-  async () => {
-    const provider = new GithubAuthProvider();
-    const auth = getAuth(app);
-    const result = await signInWithPopup(auth, provider);
-    const { uid, photoURL } = result.user;
-    return { uid, photoURL };
   }
 );
 

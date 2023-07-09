@@ -1,6 +1,5 @@
 import { FcGoogle } from 'react-icons/fc';
-import { BsGithub } from 'react-icons/bs';
-import { loginUserWithGoogle, loginUserWithGithub } from '../slices/authSlice';
+import { loginUserWithGoogle } from '../slices/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -25,9 +24,6 @@ const Login = () => {
   const handleLoginGoogle = () => {
     dispatch(loginUserWithGoogle());
   };
-  const handleLoginGithub = () => {
-    dispatch(loginUserWithGithub());
-  };
 
   useEffect(() => {
     if (authenticated) {
@@ -41,11 +37,6 @@ const Login = () => {
         text='Login with Google'
         icon={<FcGoogle className='text-3xl md:text-4xl' />}
         onClick={handleLoginGoogle}
-      />
-      <LoginButton
-        text='Login with Github'
-        icon={<BsGithub className='text-3xl md:text-4xl' />}
-        onClick={handleLoginGithub}
       />
     </section>
   );
