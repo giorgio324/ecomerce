@@ -3,6 +3,7 @@ import CartItem from '../components/CartItem';
 import { clearCart } from '../slices/cartSlice';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 const Cart = () => {
   const dispatch = useDispatch();
   const [total, setTotal] = useState(0);
@@ -10,8 +11,15 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cart);
   const isUserLoggedIn = useSelector((state) => state.auth.authenticated);
   const handleClearCart = () => {
+    if (cartItems.length === 0) return;
     dispatch(clearCart());
+    toast.success('Cart is Cleared');
   };
+  const handleCheckout = () => {
+    dispatch(clearCart());
+    toast.success('Order Placed');
+  };
+
   useEffect(() => {
     const calculatedSubTotal = cartItems.reduce(
       (acc, item) => acc + item.price * item.quantity,
@@ -85,7 +93,7 @@ const Cart = () => {
             {isUserLoggedIn ? (
               <button
                 className='bg-black text-white py-3 px-8 rounded-sm hover:bg-gray-800 transition-all font-semibold duration-150 ease-linear w-full  text-sm md:text-base lg:text-lg'
-                onClick={() => console.log('logged in')}
+                onClick={handleCheckout}
               >
                 Checkout
               </button>
