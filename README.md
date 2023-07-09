@@ -43,3 +43,7 @@ $ npm run dev
 - The Project is fully responsive.
 - The product data is fetched from the [Fake Store API](https://fakestoreapi.com/) to use the checkout you must be logged in.
 - The application supports Google authentication.
+
+## Live Demo
+
+[Shoppy](https://shoppyecomerce.netlify.app/)
