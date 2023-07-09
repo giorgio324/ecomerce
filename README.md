@@ -11,8 +11,6 @@ Shoppy is a simple ecommerce application built with modern web technologies. Thi
 1. [Installation](#installation)
 2. [Usage](#usage)
 3. [Features](#features)
-4. [Contributing](#contributing)
-5. [Credits](#credits)
 
 ## Installation
 
