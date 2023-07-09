@@ -32,7 +32,7 @@ const Login = () => {
   }, [authenticated]); // Added authenticated as a dependency
 
   return (
-    <section className='w-full flex flex-col items-center justify-center gap-10 py-20 min-h-[550px] text-base lg:text-xl '>
+    <section className='w-full flex flex-col items-center justify-center gap-10 py-20 min-h-[600px] text-base lg:text-xl'>
       <LoginButton
         text='Login with Google'
         icon={<FcGoogle className='text-3xl md:text-4xl' />}
