@@ -45,13 +45,14 @@ const Banner = () => {
         })}
         <HiArrowLeft
           className='absolute top-1/2 left-[40px] text-4xl text-white cursor-pointer
-          border border-gray-700 hover:bg-gray-600 hover:text-white transition-all
-          duration-300 ease-in-out'
+          border bg-slate-700 transition-all
+          duration-300 ease-in-out rounded-full p-2'
           onClick={prevSlide}
         />
         <HiArrowRight
-          className='absolute top-1/2 right-[40px] text-4xl text-white cursor-pointer border border-gray-700 hover:bg-gray-600 hover:text-white transition-all
-          duration-300 ease-in-out'
+          className='absolute top-1/2 right-[40px] text-4xl text-white cursor-pointer
+          border bg-slate-700 transition-all
+          duration-300 ease-in-out rounded-full p-2'
           onClick={nextSlide}
         />
       </div>

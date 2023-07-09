@@ -9,10 +9,6 @@ const MobileNavbar = ({ isNavbarOpen, toggleNavbar }) => {
     >
       <ul className='flex flex-col gap-4'>
         <NavLinkItem to={'/'} text={'Home'} onClick={toggleNavbar} />
-        <NavLinkItem to={'/pages'} text={'Pages'} onClick={toggleNavbar} />
-        <NavLinkItem to={'/shop'} text={'Shop'} onClick={toggleNavbar} />
-        <NavLinkItem to={'/element'} text={'Element'} onClick={toggleNavbar} />
-        <NavLinkItem to={'/blog'} text={'Blog'} onClick={toggleNavbar} />
       </ul>
     </div>
   );

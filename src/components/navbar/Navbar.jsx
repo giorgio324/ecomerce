@@ -31,10 +31,6 @@ const Navbar = () => {
         <div className='flex gap-10'>
           <ul className='hidden  items-center gap-6 md:flex'>
             <NavLinkItem to={'/'} text={'Home'} />
-            <NavLinkItem to={'/pages'} text={'Pages'} />
-            <NavLinkItem to={'/shop'} text={'Shop'} />
-            <NavLinkItem to={'/element'} text={'Element'} />
-            <NavLinkItem to={'/blog'} text={'Blog'} />
           </ul>
           <div className='flex gap-4 md:gap-8 items-center justify-center'>
             <Link to={'/cart'} className='relative cursor-pointer'>

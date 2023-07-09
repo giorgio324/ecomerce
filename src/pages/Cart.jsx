@@ -13,11 +13,20 @@ const Cart = () => {
     dispatch(clearCart());
   };
   useEffect(() => {
-    setSubTotal(
-      cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
+    const calculatedSubTotal = cartItems.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
     );
-    setTotal(subTotal > 300 ? subTotal : subTotal + cartItems.length * 20);
+    setSubTotal(calculatedSubTotal);
+
+    if (calculatedSubTotal > 300) {
+      setTotal(calculatedSubTotal);
+    }
+    if (calculatedSubTotal < 300) {
+      setTotal(calculatedSubTotal + cartItems.length * 20);
+    }
   }, [cartItems]);
+
   if (cartItems.length === 0) {
     return (
       <section className='max-w-screen-xl mx-auto px-5 md:px-10 py-20 flex flex-col justify-center items-center min-h-[550px]'>
